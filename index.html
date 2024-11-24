@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimercado Malucho</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Estilos Personalizados -->
+    <style>
+        body {
+            background-color: #f9f9f9; /* Fundo cinza claro */
+            color: #333;
+        }
+
+        header {
+            background-color: #ff9f43; /* Laranja suave */
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            background-color: #d3d3d3; /* Cinza claro */
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #b0b0b0; /* Cinza mais escuro no hover */
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #343a40; /* Fundo escuro */
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .carousel-caption h5 {
+            color: #000; /* Preto */
+        }
+
+        .carousel-caption p {
+            color: white;
+        }
+
+        #relogio {
+            color: #000; /* Preto */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>Minimercado Malucho</h1>
+        <p>Preço bom e qualidade, você encontra aqui!</p>
+    </header>
+
+    <nav class="text-center">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="login.html">Cadastro/Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="hortifruti.html">Frutas e Verduras</a></li>
+            <li class="nav-item"><a class="nav-link" href="naopereciveis.html">Produtos Alimentícios Não Perecíveis</a></li>
+            <li class="nav-item"><a class="nav-link" href="higienesaude.html">Produtos de Higiene e Limpeza</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- Carrossel -->
+    <div id="productCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="uva.webp" class="d-block w-50 mx-auto" alt="Uva">
+                <div class="carousel-caption">
+                    <h5>Uva Niagara Rosa</h5>
+                    <p><b>R$ 11,99/kg</b></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="brocolis.webp" class="d-block w-50 mx-auto" alt="Brócolis">
+                <div class="carousel-caption">
+                    <h5>Brócolis Ninja 300g</h5>
+                    <p><b>R$ 9,90</b></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="arroz.jpg" class="d-block w-50 mx-auto" alt="Arroz">
+                <div class="carousel-caption">
+                    <h5>Arroz Tipo 1</h5>
+                    <p><b>R$ 28,80</b></p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <hr>
+
+    <h2 class="text-center">Nossos Serviços</h2>
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Retirada no local</h3>
+                <p>Compre online e aproveite a comodidade de retirar suas compras diretamente na unidade!</p>
+                <p><b>Horário para Retiradas:</b></p>
+                <ul>
+                    <li>Segunda a Sábado: 8h às 21h</li>
+                    <li>Domingo: 8h às 17h</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Delivery</h3>
+                <p>Compre online e aproveite a comodidade de receber na sua casa!</p>
+                <p><b>Horário de Entregas:</b></p>
+                <ul>
+                    <li>Segunda a Sábado: 8h às 19h</li>
+                    <li>Domingo: 8h às 13h</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer class="text-center">
+        <h3>Estamos localizados em:</h3>
+        <p>Rua Segundo Lopes Carmona, 347 - Centro, Votorantim - SP, 18110-200</p>
+        <p>Telefone: (15) 3243-1765</p>
+        <p>Desenvolvido por Victor Henrique Pereira, 2024</p>
+    </footer>
+
+    <!-- Relógio Dinâmico -->
+    <div class="text-center my-4">
+        <h3>Horário Atual:</h3>
+        <p id="relogio" style="font-size: 1.5em; font-weight: bold;"></p>
+    </div>
+
+    <!-- JavaScript do Relógio -->
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+            const horas = agora.getHours().toString().padStart(2, '0');
+            const minutos = agora.getMinutes().toString().padStart(2, '0');
+            const segundos = agora.getSeconds().toString().padStart(2, '0');
+            document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+        setInterval(atualizarRelogio, 1000);
+        document.addEventListener('DOMContentLoaded', atualizarRelogio);
+    </script>
+</body>
+
+</html>

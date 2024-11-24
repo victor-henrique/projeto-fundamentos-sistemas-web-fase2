@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimercado Malucho - Serviços</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Estilos Personalizados -->
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff9f43;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            background-color: #d3d3d3;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #333;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        nav a:hover {
+            background-color: #b0b0b0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, h3 {
+            color: #000;
+        }
+
+        a.privacidade {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a.privacidade:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>Minimercado Malucho</h1>
+        <p>Preço bom e qualidade, você encontra aqui!</p>
+    </header>
+
+    <nav class="text-center">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="login.html">Cadastro/Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="hortifruti.html">Frutas e Verduras</a></li>
+            <li class="nav-item"><a class="nav-link" href="naopereciveis.html">Produtos Alimentícios Não Perecíveis</a></li>
+            <li class="nav-item"><a class="nav-link" href="higienesaude.html">Produtos de Higiene e Limpeza</a></li>
+        </ul>
+    </nav>
+
+    <div class="container my-4">
+        <h2 class="text-center">Nossos Serviços</h2>
+        <hr>
+        <div>
+            <h3>Retirada no local</h3>
+            <p>Compre online e aproveite a comodidade de retirar suas compras diretamente na unidade!</p>
+            <p><b>Horário para Retiradas:</b></p>
+            <ul>
+                <li>Segunda a Sábado: 8h às 21h</li>
+                <li>Domingo: 8h às 17h</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Delivery</h3>
+            <p>Compre online e aproveite a comodidade de receber na sua casa!</p>
+            <p><b>Horário de Entregas:</b></p>
+            <ul>
+                <li>Segunda a Sábado: 8h às 19h</li>
+                <li>Domingo: 8h às 13h</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container my-4 text-center">
+        <h2>Agende seu Serviço</h2>
+        <form id="formAgendamento">
+            <label>Serviço:</label>
+            <select id="tipoServico" class="form-select my-2">
+                <option value="retirada">Retirada no Local</option>
+                <option value="delivery">Delivery</option>
+            </select>
+            
+            <label>Data:</label>
+            <input type="text" id="dataAgendamento" class="form-control my-2" placeholder="Escolha a data">
+    
+            <label>Horário:</label>
+            <select id="horaAgendamento" class="form-select my-2">
+                <!-- Horários serão atualizados -->
+            </select>
+    
+            <button type="submit" class="btn btn-primary mt-3">Confirmar</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <script>
+        $(function() {
+            // Datas e horários de retirada e delivery
+            const horarios = {
+                retirada: ["08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00"],
+                delivery: ["08:00", "10:00", "12:00", "14:00", "16:00", "18:00"]
+            };
+    
+            // Inicializa o calendário
+            $("#dataAgendamento").datepicker({ minDate: 0, dateFormat: "dd/mm/yy" });
+    
+            // Atualiza o horário conforme o tipo de serviço
+            function atualizarHorarios() {
+                const tipo = $("#tipoServico").val();
+                $("#horaAgendamento").empty();
+                horarios[tipo].forEach(hora => {
+                    $("#horaAgendamento").append(new Option(hora, hora));
+                });
+            }
+    
+            // Chama a função ao abrir a página e quando o tipo de serviço muda
+            atualizarHorarios();
+            $("#tipoServico").change(atualizarHorarios);
+    
+            // Confirmação simplificada do agendamento
+            $("#formAgendamento").submit(function(event) {
+                event.preventDefault();
+                alert(`Agendado: ${$("#tipoServico").val() === 'retirada' ? 'Retirada' : 'Delivery'}\nData: ${$("#dataAgendamento").val()}\nHora: ${$("#horaAgendamento").val()}`);
+            });
+        });
+    </script>
+        
+
+    <hr>
+
+    <div class="text-center mb-4">
+        <h3><a href="privacidade.html" class="privacidade">Política de Privacidade</a></h3>
+    </div>
+
+    <nav class="text-center">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="login.html">Cadastro/Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="hortifruti.html">Frutas e Verduras</a></li>
+            <li class="nav-item"><a class="nav-link" href="naopereciveis.html">Produtos Alimentícios Não Perecíveis</a></li>
+            <li class="nav-item"><a class="nav-link" href="higienesaude.html">Produtos de Higiene e Limpeza</a></li>
+        </ul>
+    </nav>
+
+    <footer class="text-center mt-4">
+        <h3>Estamos localizados em:</h3>
+        <p>Rua Segundo Lopes Carmona, 347 - Centro, Votorantim - SP, 18110-200</p>
+        <p>Telefone: (15) 3243-1765</p>
+        <p>Desenvolvido por Victor Henrique Pereira, 2024</p>
+    </footer>
+
+    <!-- Relógio Dinâmico -->
+    <div class="text-center my-4">
+        <h3>Horário Atual:</h3>
+        <p id="relogio" style="font-size: 1.5em; font-weight: bold;"></p>
+    </div>
+
+    <!-- JavaScript do Relógio -->
+    <script>
+        function atualizarRelogio() {
+            const agora = new Date();
+            const horas = agora.getHours().toString().padStart(2, '0');
+            const minutos = agora.getMinutes().toString().padStart(2, '0');
+            const segundos = agora.getSeconds().toString().padStart(2, '0');
+            document.getElementById('relogio').textContent = `${horas}:${minutos}:${segundos}`;
+        }
+        setInterval(atualizarRelogio, 1000);
+        document.addEventListener('DOMContentLoaded', atualizarRelogio);
+    </script>
+</body>
+
+</html>
